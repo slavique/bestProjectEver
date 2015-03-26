@@ -11,8 +11,8 @@ REST API:
     {
       name: <string:item_name>,
       price: <number:item_price>,
-      description: <string: item_description>,
-      image: <string: url to item image>
+      description: <string:item_description>,
+      image: <string:url_to_item_image>
     }
  ]
  </code></pre>
