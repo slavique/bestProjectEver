@@ -6,8 +6,7 @@ REST API:
  <b>https://api.appery.io/rest/1/code/e45fd6bb-81e7-4e7c-9c78-47bdad6faa59/exec</b> - retrieves list of item.
 
  Response
- <pre>
- <code>
+ <pre><code>
  [
     {
       name: <string:item_name>,
@@ -16,5 +15,4 @@ REST API:
       image: <string: url to item image>
     }
  ]
- </code>
- </pre>
+ </code></pre>
