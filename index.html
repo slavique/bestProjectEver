@@ -1,13 +1,62 @@
 <html>
     <head>
-        <script src="js/main.js"></script>
+        <!--<script src="js/main.js"></script>-->
         <link rel="stylesheet" href="css/one/two/main.css">
     </head>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var oReq = new XMLHttpRequest();
+            oReq.onreadystatechange = function () {
+                if (oReq.readyState !== 4) {
+                    return;
+                }
+                if (oReq.status === 200) {
+                    var items = JSON.parse(oReq.responseText);
+                    console.log(items);
+                }
+            }
+            oReq.open("get", "https://api.appery.io/rest/1/code/e45fd6bb-81e7-4e7c-9c78-47bdad6faa59/exec", true);
+            oReq.send();
+        });
+
+    </script>
     <body>
 
 
 
+
         
+        <button id='test'>Test content</button>
+		<label>label to commit through git</label>
+		<label>label for second commit</label>
+
+        <div class="item-list">
+            <div class="item">
+                <div class="name">First</div>
+                <div class="price">10$</div>
+            </div>
+            <div class="item">
+                <div class="name">Second</div>
+                <div class="price">11$</div>
+            </div>
+            <div class="item">
+                <div class="name">Third</div>
+                <div class="price">12$</div>
+            </div>
+            <div class="item">
+                <div class="name">Fourth</div>
+                <div class="price">9$</div>
+            </div>
+            <div class="item">
+                <div class="name">Fifth</div>
+                <div class="price">1$</div>
+            </div>
+            <div class="item">
+                <div class="name">Sixth</div>
+                <div class="price">2$</div>
+            </div>
+        </div>
+
 
     </body>
 </html>
