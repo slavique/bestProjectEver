@@ -9,7 +9,7 @@ REST API:
  <pre><code>
  [
     {
-      name: <string:item_name>,
+      name: \<string:item_name\>,
       price: <number:item_price>,
       description: <string:item_description>,
       image: <string:url_to_item_image>
