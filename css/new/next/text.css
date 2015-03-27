@@ -22,21 +22,21 @@
     border: 5px;
     border-color: #f8f8f0;
     border-style: solid;
-
-
 }
 
 
-input[type="text"],select,button{
-    padding-left: 5px;
+input,select,button{
+    padding-left: 10px;
+    margin-left: 1cm;
     height: 35px;
-    width: 500px;
+    width: 12cm;
     border: 1px solid black;
     border-radius: 5px;
+    vertical-align: middle;
     font-family: "Courier New", Courier, monospace;
     font-size: 17px;
     font-weight: bold;
-    box-shadow: 0 2px 6px -2px rgb(255, 244, 8) inset
+    box-shadow: 0 2px 6px -2px rgb(6, 91, 80) inset
 
 }
 
@@ -50,3 +50,22 @@ button {
     padding-left: 350px;
     margin-top: 100px;
 }
+.regi {
+    height: 20px;
+    color: #32605e;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.logi {
+    height: 20px;
+    color: #32605e;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+}
+
+
+
+
+
