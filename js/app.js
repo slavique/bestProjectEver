@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		var list = document.querySelector('.goods-list');
 		newItem.className = 'goods-item';
 		itemsImage.setAttribute("src", response[i].image);
-		newItem.innerHTML = '<p>' + response[i].name + '</p><p>' + response[i].description + '</p><img src="' + response[i].image + '"><p>Price: $' + response[i].price + '</p><hr>';
+		newItem.innerHTML = '<div class="col-md-3"><p><b>' + response[i].name + '</b></p><p>' + response[i].description + '</p><img src="' + response[i].image + '"><p>Price: <b>$' + response[i].price + '</b></p><hr></div>';
 		list.appendChild(newItem);
 	  }
 
