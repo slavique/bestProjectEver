@@ -23,3 +23,7 @@ table td {
 .items-management .items-list tr:hover {
     background-color: #46b8da;
 }
+
+.items-management .items-list img {
+    width: 100px;
+}
