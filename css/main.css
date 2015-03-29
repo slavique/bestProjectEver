@@ -1,6 +1,29 @@
+<<<<<<< HEAD
+=======
+table {
+    border-spacing: 0;
+}
+
+table td {
+    padding: 5px;
+}
+
+.goods-item {
+	box-shadow: 0 0 20px rgba(0,0,0,0.5);
+
+}
+>>>>>>> bd15a48c6eddf1086526c68928f338930c474c95
 
 
 .col-md-3 {
 	margin: 10px;
 	box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.items-management .items-list tr:hover {
+    background-color: #46b8da;
+}
+
+.items-management .items-list img {
+    width: 100px;
 }
