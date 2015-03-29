@@ -16,18 +16,85 @@
                 }, function (data) {
                     alert('Item had been added.\n Response:\n' + JSON.stringify(data));
                 })
-            })
+            });
+
+            $('#items').addEventListener('click', deleteItemHandler);
+
+            function deleteItemHandler(e) {
+                e.stopPropagation();
+                e.preventDefault();
+
+                var target = e.target;
+
+                if (target.classList.contains('delete')) {
+                    console.log('Delete has been clicked');
+                }
+            }
+
+            api.getItemsList(function (items) {
+                var fragment = document.createDocumentFragment();
+                items.forEach(function (item) {
+                    var tr = document.createElement('tr');
+                    var nameEl = document.createElement('td');
+                    var priceEl = document.createElement('td');
+                    var descriptionEl = document.createElement('td');
+                    var imageEl = document.createElement('td');
+                    var deleteEl = document.createElement('td');
+
+                    tr.id = item._id;
+
+                    nameEl.classList.add('name');
+                    nameEl.textContent = item.name;
+
+                    priceEl.classList.add('price');
+                    priceEl.textContent = item.price;
+
+                    descriptionEl.classList.add('description');
+                    descriptionEl.textContent = item.description;
+
+                    imageEl.classList.add('image');
+                    var image = document.createElement('img');
+                    image.src = item.image;
+                    imageEl.appendChild(image);
+
+                    var deleteLink = document.createElement('a');
+                    deleteLink.classList.add('delete');
+                    deleteLink.href = '#';
+                    deleteLink.textContent = 'Delete';
+
+                    deleteEl.appendChild(deleteLink);
+
+
+                    tr.appendChild(nameEl);
+                    tr.appendChild(priceEl);
+                    tr.appendChild(descriptionEl);
+                    tr.appendChild(imageEl);
+                    tr.appendChild(deleteEl);
+                    fragment.appendChild(tr);
+                });
+                $('#items').appendChild(fragment);
+            });
         });
+
+
     </script>
 </head>
 <body>
 
+<section>
 <h1>Add item form</h1>
 <div><input id="name" type="text" placeholder="Item name"/></div>
 <div><input id="price" type="text" placeholder="Item price"/></div>
 <div><input id="description" type="text" placeholder="Item description"/></div>
 <div><input id="image" type="text" placeholder="Item image URL"/></div>
 <div><button id="add_action">Add item</button></div>
+</section>
+
+<section>
+    <table id="items">
+
+    </table>
+</section>
 
 
 
