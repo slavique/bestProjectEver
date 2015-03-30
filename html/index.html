@@ -2,8 +2,8 @@
     <head>
       
 		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/grid.css">
 <!--			  <link rel="stylesheet" href="../css/one/two/main.css">-->
-		<link rel="stylesheet" href="../lib/bootstrap-3.3.4-dist/bootstrap-3.3.4-dist/css/bootstrap.css">
 <!--		<script src="../js/main.js"></script>-->
 		<script src="../js/app.js"></script>
     </head>
@@ -13,7 +13,13 @@
             <a href="registration.html">Registration</a>
             <a href="admin.html">Add item</a>
         </nav>
-		<div class="goods-list">
+		<label>Filter by:</label>
+		<select class="filter">
+			<option value="none"></option>
+			<option value="low to high">price: from low to high</option>
+			<option value="high to low">price: from high to low</option>
+		</select>
+		<div class="grid">
 		</div>
 
     </body>
