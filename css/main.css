@@ -1,0 +1,30 @@
+body {
+width: 100%;
+}
+
+
+table {
+    border-spacing: 0;
+}
+
+table td {
+    padding: 5px;
+}
+
+
+.items-management .items-list tr:hover {
+    background-color: #46b8da;
+}
+
+.items-management .items-list img {
+    width: 100px;
+}
+
+.topmenu {
+	text-align: right;
+	margin: 5px;
+}
+
+.search {
+	float: right;
+}

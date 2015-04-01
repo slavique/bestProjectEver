@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var $ = document.querySelector.bind(document);
+            $('#add_action').addEventListener('click', function () {
+                api.addItem({
+                    name: $('#name').value,
+                    price: $('#price').value,
+                    description: $('#description').value,
+                    image: $('#image').value
+                }, function (data) {
+                    alert('Item had been added.\n Response:\n' + JSON.stringify(data));
+                })
+            });
+
+            $('#items').addEventListener('click', deleteItemHandler);
+
+            function deleteItemHandler(e) {
+                e.stopPropagation();
+                e.preventDefault();
+
+                var target = e.target;
+
+                if (target.classList.contains('delete')) {
+                    var answer = confirm('Are you really want to delete this item? Item can\'t be restored after deleting.');
+
+                    if (answer) {
+                        // get td -> tr -> tr.id
+                        var trEl = target.parentNode ? target.parentNode.parentNode : undefined;
+                        var itemId = trEl ? trEl.id : undefined;
+
+                        if (itemId) {
+                            api.deleteItem(itemId, function () {
+                               trEl.remove();
+                               alert('Item has been deleted');
+                            });
+                            return;
+                        } else {
+                            throw 'Can\'t get item id.';
+                        }
+
+                    }
+                }
+            }
+
+            api.getItemsList(function (items) {
+                var fragment = document.createDocumentFragment();
+                items.forEach(function (item) {
+                    var tr = document.createElement('tr');
+                    var nameEl = document.createElement('td');
+                    var priceEl = document.createElement('td');
+                    var descriptionEl = document.createElement('td');
+                    var imageEl = document.createElement('td');
+                    var deleteEl = document.createElement('td');
+
+                    tr.id = item._id;
+
+                    nameEl.classList.add('name');
+                    nameEl.textContent = item.name;
+
+                    priceEl.classList.add('price');
+                    priceEl.textContent = item.price;
+
+                    descriptionEl.classList.add('description');
+                    descriptionEl.textContent = item.description;
+
+                    imageEl.classList.add('image');
+                    var image = document.createElement('img');
+                    image.src = item.image;
+                    imageEl.appendChild(image);
+
+                    var deleteLink = document.createElement('a');
+                    deleteLink.classList.add('delete');
+                    deleteLink.href = '#';
+                    deleteLink.textContent = 'Delete';
+
+                    deleteEl.appendChild(deleteLink);
+
+
+                    tr.appendChild(nameEl);
+                    tr.appendChild(priceEl);
+                    tr.appendChild(descriptionEl);
+                    tr.appendChild(imageEl);
+                    tr.appendChild(deleteEl);
+                    fragment.appendChild(tr);
+                });
+                $('#items tbody').appendChild(fragment);
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+
+<section>
+<h1>Add item form</h1>
+<div><input id="name" type="text" placeholder="Item name"/></div>
+<div><input id="price" type="text" placeholder="Item price"/></div>
+<div><input id="description" type="text" placeholder="Item description"/></div>
+<div><input id="image" type="text" placeholder="Item image URL"/></div>
+<div><button id="add_action">Add item</button></div>
+</section>
+
+<section class="items-management">
+    <table id="items" class="items-list">
+       <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+       </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</section>
+
+
+
+</body>
+</html>
