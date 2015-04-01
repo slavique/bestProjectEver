@@ -9,28 +9,28 @@ document.addEventListener("DOMContentLoaded", function() {
 	 
 	function sorting(e) {
 		 
-	//	 var objFromLocalStorage = localStorage.getItem(i);
-		 for(var i = 0; i < localStorage.length -1; i++){
-			 function loop(){
-				 var tempObj = JSON.parse(localStorage.getItem(i));
-				 //var rr = JSON.parse(tempObj);
-				 response.push(tempObj);
-			 	 
-			 };
-			 loop();
-		 	
-		 }
-		 console.log(response);
+		 var fromLocal = JSON.parse(localStorage.getItem('items'));
+//		 for(var i = 0; i < fromLocal.length -1; i++){
+//			 function loop(){
+//				 var tempObj = JSON.parse(localStorage.getItem(i));
+//				 //var rr = JSON.parse(tempObj);
+//				 response.push(tempObj);
+//			 	 
+//			 };
+//			 loop();
+//		 	
+//		 }
+//		 console.log(response);
 		    if (e.target.value == 'low to high') {
-		  	  response.sort(function (a, b){
-				  return a.price < b.price;
+		  	  fromLocal.sort(function (a, b){
+				  return parseInt(a.price) < parseInt(b.price);
 			  });
 		    } else if (e.target.value == 'high to low') {
-		  	response.sort(function (a, b){
-				return a.price > b.price;
+		  	fromLocal.sort(function (a, b){
+				return parseInt(a.price) > parseInt(b.price);
 			  });
 		    }
-		    render(response);
+		    render(fromLocal);
 	    }
 	
     function render(items) {
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			itemsImage.setAttribute("src", items[i].image);
 			newItem.innerHTML = '<a class="inner-grid" href="item.html#id=' + items[i]._id + '"><div class="inner-grid-col"><p><b>' + items[i].name + '</b></p><img width="100px" height="100px" src="' + items[i].image + '"><p>Price: <b>$' + items[i].price + '</b></p></div><div class="inner-grid-col description"><p class="description">' + descriptionPreview + '</p></div></a>';
 			list.appendChild(newItem);
-			localStorage.setItem(i,  '{"price": ' + items[i].price +', "id": ' + items[i]._id + ', "description": ' + items[i].description +', "name": ' + items[i].name +'}');
+			localStorage.setItem('items',  JSON.stringify(items));
 
 			
 
