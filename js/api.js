@@ -23,6 +23,25 @@ var api = {
         oReq.open("get", "https://api.appery.io/rest/1/code/e45fd6bb-81e7-4e7c-9c78-47bdad6faa59/exec", true);
         oReq.send();
     },
+	
+	getItem: function(itemId, callback) {
+		var req = new XMLHttpRequest();
+		callback = callback || function () {};
+		
+		req.onreadystatechange = function () {
+			if (req.readyState !== 4) {
+				return;
+			}
+			if (req.status === 200) {
+			var item = JSON.parse(req.responseText);
+			callback(item);
+			}
+		};
+		req.open('GET', 'https://api.appery.io/rest/1/db/collections/items/' + itemId);
+        req.setRequestHeader('Content-Type', 'application/json');
+		req.setRequestHeader('X-Appery-Database-Id', '55131b26e4b0002315f3b76d');
+    	req.send();	
+	},
 
     addItem: function (item, callback) {
         var req = new XMLHttpRequest();
