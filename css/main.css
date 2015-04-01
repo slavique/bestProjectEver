@@ -18,6 +18,7 @@ table td {
 
 .items-management .items-list img {
     width: 100px;
+<<<<<<< HEAD
 }
 
 .topmenu {
@@ -27,4 +28,6 @@ table td {
 
 .search {
 	float: right;
+=======
+>>>>>>> fa7507bb03d51524c8103d588f4e9aa74b5442b1
 }

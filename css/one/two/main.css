@@ -1,0 +1,16 @@
+@import url(../../new/next/text.css);
+
+body {
+    background-color: #fcfcfc;
+    color: #7c7c7c;
+    font-size: 14px;
+}
+h1,h2,p {
+    color: #fcfcfc;
+
+    font-family: "Courier New", Courier, monospace;
+    font-style: normal;
+    text-align: center;
+}
+
+
