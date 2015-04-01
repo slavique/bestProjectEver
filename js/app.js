@@ -1,28 +1,28 @@
 (function() {
-document.addEventListener("DOMContentLoaded", function() { 
-	var $ = document.querySelector.bind(document);
+document.addEventListener("DOMContentLoaded", function() {
     $('.filter').addEventListener('change', sorting);
-	var response = [];
+	var response;
 	// call render function after itemsList call succeed
 	api.getItemsList(render);
 
 	 
 	function sorting(e) {
-		 
-		 var fromLocal = JSON.parse(localStorage.getItem('items'));
-		    if (e.target.value == 'low to high') {
-		  	  fromLocal.sort(function (a, b){
-				  return parseInt(a.price) < parseInt(b.price);
-			  });
-		    } else if (e.target.value == 'high to low') {
-		  	fromLocal.sort(function (a, b){
-				return parseInt(a.price) > parseInt(b.price);
-			  });
-		    }
-		    render(fromLocal);
-	    }
+		var arrayToSort = response;
+
+		if (e.target.value == 'low to high') {
+		  arrayToSort.sort(function (a, b){
+			  return parseInt(a.price) < parseInt(b.price);
+		  });
+		} else if (e.target.value == 'high to low') {
+		arrayToSort.sort(function (a, b){
+			return parseInt(a.price) > parseInt(b.price);
+		  });
+		}
+		render(arrayToSort);
+	}
 	
     function render(items) {
+		response = items;
 		var list = document.querySelector('.grid');
 		list.innerHTML = "";
 		for(var i = 0; i < items.length; i++) {
@@ -34,10 +34,6 @@ document.addEventListener("DOMContentLoaded", function() {
 			itemsImage.setAttribute("src", items[i].image);
 			newItem.innerHTML = '<a class="inner-grid" href="item.html#id=' + items[i]._id + '"><div class="inner-grid-col"><p><b>' + items[i].name + '</b></p><img width="100px" height="100px" src="' + items[i].image + '"><p>Price: <b>$' + items[i].price + '</b></p></div><div class="inner-grid-col description"><p class="description">' + descriptionPreview + '</p></div></a>';
 			list.appendChild(newItem);
-			localStorage.setItem('items',  JSON.stringify(items));
-
-			
-
         }
     }
   });
