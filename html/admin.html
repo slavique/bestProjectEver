@@ -6,9 +6,8 @@
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/api.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var $ = document.querySelector.bind(document);
-            $('#add_action').addEventListener('click', function () {
+        document.on('DOMContentLoaded', function () {
+            $('#add_action').on('click', function () {
                 api.addItem({
                     name: $('#name').value,
                     price: $('#price').value,
@@ -19,7 +18,7 @@
                 })
             });
 
-            $('#items').addEventListener('click', deleteItemHandler);
+            $('#items').on('click', deleteItemHandler);
 
             function deleteItemHandler(e) {
                 e.stopPropagation();
@@ -112,11 +111,11 @@
     <table id="items" class="items-list">
        <thead>
             <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>Action</th>
+                <th width="10%">Name</th>
+                <th width="10%">Price</th>
+                <th width="50%">Description</th>
+                <th width="20%">Image</th>
+                <th width="10%">Action</th>
             </tr>
        </thead>
         <tbody>

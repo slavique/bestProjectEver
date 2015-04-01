@@ -3,6 +3,8 @@
  */
 
 var $ = document.querySelector.bind(document);
+Element.prototype.on = Element.prototype.addEventListener;
+Document.prototype.on = Document.prototype.addEventListener;
 
 var api = {
 
@@ -88,5 +90,4 @@ var api = {
         req.setRequestHeader('X-Appery-Database-Id', '55131b26e4b0002315f3b76d');
         req.send();
     }
-
 }
