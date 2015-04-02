@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		if (e.target.value == 'low to high') {
 		  arrayToSort.sort(function (a, b){
-			  return parseInt(a.price) < parseInt(b.price);
+			  return a.price - b.price;
 		  });
 		} else if (e.target.value == 'high to low') {
 		arrayToSort.sort(function (a, b){
-			return parseInt(a.price) > parseInt(b.price);
+			return b.price - a.price;
 		  });
 		}
 		render(arrayToSort);
