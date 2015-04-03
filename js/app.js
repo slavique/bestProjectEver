@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	
     function render(items) {
 		response = items;
-		var list = document.querySelector('.grid');
+		var list = $('.grid');
 		list.innerHTML = "";
 		for(var i = 0; i < items.length; i++) {
 			var newItem = document.createElement('div');
@@ -32,7 +32,10 @@ document.addEventListener("DOMContentLoaded", function() {
 			if (descriptionPreview.length > 110) descriptionPreview = (descriptionPreview.substring(0, 110) + "...");
 			newItem.className = 'col';
 			itemsImage.setAttribute("src", items[i].image);
-			newItem.innerHTML = '<a class="inner-grid" href="item.html#id=' + items[i]._id + '"><div class="inner-grid-col"><p><b>' + items[i].name + '</b></p><img width="100px" height="100px" src="' + items[i].image + '"><p>Price: <b>$' + items[i].price + '</b></p></div><div class="inner-grid-col description"><p class="description">' + descriptionPreview + '</p></div></a>';
+			newItem.innerHTML = '<a class="inner-grid" href="item.html#id=' + items[i]._id + '' +
+			'"><div class="inner-grid-col-left"><div style="width: 100px; height: 120px;"><img class="item-image" width="100px" src="'
+			+ items[i].image + '"></div><p class="item-price">Price: <b>$' + items[i].price + '</b></p></div><div class="inner-grid-col' +
+			' description"><p class="item-name"><b>' + items[i].name + '</b></p><p class="description">' + descriptionPreview + '</p></div></a>';
 			list.appendChild(newItem);
         }
     }

@@ -12,28 +12,37 @@
 		<script src="../js/search.js"></script>
     </head>
     <body>
+		<div class="header">
 		<nav class="topmenu">
             <a href="login.html">Login</a>
             <a href="registration.html">Registration</a>
             <a href="admin.html">Add item</a>
+
         </nav>
-		<label>Sort by:</label>
-		<select class="filter">
+
+			<h1 id="heading">
+				Buy. Don't be a pussy!
+			</h1>
+
+		<label for="sorting">Sort by:</label>
+		<select class="filter" id="sorting">
 			<option value="none"></option>
 			<option value="low to high">price: from low to high</option>
 			<option value="high to low">price: from high to low</option>
 		</select>
-		
+
+
+
 		<div class="search">
 			<input type="text" placeholder="Search" id="searchInput">
 			<input type="submit" value="Go!" id="searchButton">
+
+		</div>
 		</div>
 		
 		<div class="grid">
 		</div>
 
-		<div class="grid">
-		</div>
 
     </body>
 </html>
