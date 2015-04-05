@@ -1,7 +1,8 @@
 .grid {
 	width: 100%;
 	float: left;
-	margin: 2% 1% 2% 1%;
+	margin: 1% 1% 2% 1%;
+	padding-top: 85px;
 
 }
 
@@ -14,6 +15,7 @@
 	margin-top: 1%;
 	display: inline-block;
 	width: 23%;
+	height: 200px;
 	box-shadow: 0 0 2em rgba(0,0,0,0.5);
 }
 .col:hover {
@@ -43,18 +45,27 @@
 grid inside item
 }*/
 .inner-grid {
+	color: black;
 	width: 100%;
+	height: 100%;
 	float: left;
-
 }
 
 .inner-grid-col{
-	width: 50%;
+	width: 63%;
 	float: left;
 	display: inline-block;
 }
-.inner-grid-col.description{
-	margin-left: -30px;
-	margin-top: 35px;
+.inner-grid-col-left{
+	width: 37%;
+	float: left;
+	margin-top: 30px;
+	display: inline-block;
 }
+
+
+/*.inner-grid-col.description{*/
+	/*margin-left: -30px;*/
+	/*padding-bottom: -35px;*/
+/*}*/
 
