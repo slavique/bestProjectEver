@@ -3,7 +3,7 @@
 
 
 	api.getItem(itemId, function(item) {
-		$('.render-item').innerHTML = '<h1 id="name">' + item.name + '</h1><img id="image" width="500px"  src="'
+		$('.render-item').innerHTML = '<h1 id="name">' + item.name + '</h1><img id="image" width="400px"  src="'
 		+ item.image +'"><p id="description">' + item.description + '</p><p id="price">Price: <b>$' + item.price+ '</b></p> ';
 	});
 //	var xmlhttp = new XMLHttpRequest();
