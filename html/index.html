@@ -1,26 +1,14 @@
 <html>
     <head>
-        <script src="../js/main.js"></script>
-        <link rel="stylesheet" href="../css/one/two/main.css">
+      
+		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="../css/grid.css">
+<!--			  <link rel="stylesheet" href="../css/one/two/main.css">-->
+<!--		<script src="../js/main.js"></script>-->
+		<script src="../js/app.js"></script>
     </head>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var oReq = new XMLHttpRequest();
-            oReq.onreadystatechange = function () {
-                if (oReq.readyState !== 4) {
-                    return;
-                }
-                if (oReq.status === 200) {
-                    var items = JSON.parse(oReq.responseText);
-                    console.log(items);
-                }
-            }
-            oReq.open("get", "https://api.appery.io/rest/1/code/e45fd6bb-81e7-4e7c-9c78-47bdad6faa59/exec", true);
-            oReq.send();
-        });
-
-    </script>
     <body>
+<<<<<<< HEAD
 
 
 
@@ -64,6 +52,21 @@
             </div>
         </div>
 
+=======
+        <nav style="text-align: right;">
+            <a href="login.html">Login</a>
+            <a href="registration.html">Registration</a>
+            <a href="admin.html">Add item</a>
+        </nav>
+		<label>Filter by:</label>
+		<select class="filter">
+			<option value="none"></option>
+			<option value="low to high">price: from low to high</option>
+			<option value="high to low">price: from high to low</option>
+		</select>
+		<div class="grid">
+		</div>
+>>>>>>> 8240abba772a61660a7381d759108464bc060efc
 
     </body>
 </html>
