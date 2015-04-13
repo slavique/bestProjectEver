@@ -116,6 +116,28 @@ api = {
         req.setRequestHeader('X-Appery-Database-Id', '55131b26e4b0002315f3b76d');
         req.send(JSON.stringify(user));
 
+    },
+    
+    login: function (username, password, callback) {
+        var req = new XMLHttpRequest();
+        callback = callback || function () {
+        };
+        
+        req.onreadystatechange = function() {
+            if (req.readyState !== 4){
+                return; 
+            }
+            
+            if (req.status == 200) {
+                var loginResult = JSON.parse(req.responseText);
+                callback(loginResult);
+            }    
+            
+        }
+        
+        req.open('GET', 'https://api.appery.io/rest/1/db/login?username=' + username + '&password=' + password);
+        req.setRequestHeader('X-Appery-Database-Id', '55131b26e4b0002315f3b76d');
+        req.send();
     }
 
 };

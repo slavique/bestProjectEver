@@ -20,11 +20,17 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             else {
-                alert ( "\nUsername " + user.uname + "\nPassword: " + user.pwd);
+                api.login(uname, pwd, function(loginResult){
+                    alert("Welcome, " + uname);
+                    window.location.href = 'index.html';
+                    localStorage.setItem('session', JSON.stringify(loginResult));
+                });
             }
-            console.log(array);
-            localStorage.setItem("local1", JSON.stringify(user));
-        }
+//            console.log(array);
+//            localStorage.setItem("local1", JSON.stringify(user));
+            
+           
 
-    )
+    
+    });
 });
