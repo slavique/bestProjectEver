@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	function filter() {
 		var arrayToFilter = response;
-		//function filteringInput(element) {
 		var prices = [];
 		var objects = [];
 		for(var i = 0; i < arrayToFilter.length; i++) {
@@ -43,15 +42,6 @@ document.addEventListener("DOMContentLoaded", function() {
 				}
 			}
 		}
-		//};
-
-
-		// for(var i = 0; i < arrayToFilter.length; i++) {
-		// 		if(arrayToFilter[i].price < 20) {
-		// 			delete arrayToFilter[arrayToFilter.indexOf(arrayToFilter[i])];
-		// 		};
-		// 	}
-		// //filtered = arrayToFilter.filter(filteringInput);
 		render(objects);
 	};
 
