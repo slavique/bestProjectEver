@@ -1,6 +1,7 @@
 (function() {
 document.addEventListener("DOMContentLoaded", function() {
-    $('.filter').addEventListener('change', sorting);
+    $('.sorting').addEventListener('change', sorting);
+    $('#filter').addEventListener('click', filter);
 	var response;
 	// call render function after itemsList call succeed
 	api.getItemsList(render);
@@ -19,7 +20,41 @@ document.addEventListener("DOMContentLoaded", function() {
 		  });
 		}
 		render(arrayToSort);
-	}
+	};
+
+	function filter() {
+		var arrayToFilter = response;
+		//function filteringInput(element) {
+		var prices = [];
+		var objects = [];
+		for(var i = 0; i < arrayToFilter.length; i++) {
+			prices.push(arrayToFilter[i].price)
+		};
+		console.log(prices);
+		function filteringInput(element) {
+			return element <= 30;
+		};
+		filtered = prices.filter(filteringInput);
+		console.log(filtered);
+		for (var i = 0; i < arrayToFilter.length; i++) {
+			for(var j = 0; j < filtered.length; j++) {
+				if(filtered[j] == arrayToFilter[i].price) {
+					objects.push(arrayToFilter[i]);
+				}
+			}
+		}
+		//};
+
+
+		// for(var i = 0; i < arrayToFilter.length; i++) {
+		// 		if(arrayToFilter[i].price < 20) {
+		// 			delete arrayToFilter[arrayToFilter.indexOf(arrayToFilter[i])];
+		// 		};
+		// 	}
+		// //filtered = arrayToFilter.filter(filteringInput);
+		render(objects);
+	};
+
 	
     function render(items) {
 		response = items;
