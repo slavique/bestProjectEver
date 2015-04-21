@@ -24,25 +24,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	function filter() {
 		var arrayToFilter = response;
-		var prices = [];
-		var objects = [];
-		for(var i = 0; i < arrayToFilter.length; i++) {
-			prices.push(arrayToFilter[i].price)
-		};
-		console.log(prices);
-		function filteringInput(element) {
-			return element <= 30;
-		};
-		filtered = prices.filter(filteringInput);
-		console.log(filtered);
-		for (var i = 0; i < arrayToFilter.length; i++) {
-			for(var j = 0; j < filtered.length; j++) {
-				if(filtered[j] == arrayToFilter[i].price) {
-					objects.push(arrayToFilter[i]);
-				}
-			}
-		}
-		render(objects);
+//		var prices = [];
+//		var objects = [];
+//		for(var i = 0; i < arrayToFilter.length; i++) {
+//			prices.push(arrayToFilter[i].price)
+//		};
+//		console.log(prices);
+//		function filteringInput(element) {
+//			return element <= 30;
+//		};
+//		filtered = prices.filter(filteringInput);
+//		console.log(filtered);
+//		for (var i = 0; i < arrayToFilter.length; i++) {
+//			for(var j = 0; j < filtered.length; j++) {
+//				if(filtered[j] == arrayToFilter[i].price) {
+//					objects.push(arrayToFilter[i]);
+//				}
+//			}
+//		}
+		var filteredArray = arrayToFilter.filter(function(el){
+			return el.price < 30;
+		});
+		render(filteredArray);
 	};
 
 	
